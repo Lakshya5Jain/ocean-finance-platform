@@ -5,8 +5,6 @@ import About from '@/components/About';
 import Solutions from '@/components/Solutions';
 import ComparisonTable from '@/components/ComparisonTable';
 import Testimonials from '@/components/Testimonials';
-import Team from '@/components/Team';
-import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -18,8 +16,6 @@ const Index = () => {
       <Solutions />
       <ComparisonTable />
       <Testimonials />
-      <Team />
-      <Contact />
       <Footer />
     </div>
   );

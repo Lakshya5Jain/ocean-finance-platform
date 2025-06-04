@@ -20,12 +20,12 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
         <div className="max-w-4xl mx-auto animate-fade-in">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-montserrat font-light leading-tight mb-8">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-montserrat font-light leading-tight mb-8 text-white">
             You <span className="font-bold">built a sophisticated business.</span><br />
             You <span className="font-bold">deserve a lender who gets it.</span>
           </h1>
           
-          <p className="text-xl md:text-2xl font-montserrat font-light mb-12 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl font-montserrat font-light mb-12 max-w-2xl mx-auto leading-relaxed text-white">
             We provide the capital you need for your business to succeed.
           </p>
 
@@ -48,15 +48,15 @@ const Hero = () => {
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all duration-300">
               <div className="text-4xl font-montserrat font-bold mb-2 text-secondary">2.5×</div>
-              <p className="font-montserrat">Higher credit limits</p>
+              <p className="font-montserrat text-white">Higher credit limits</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all duration-300">
               <div className="text-4xl font-montserrat font-bold mb-2 text-secondary">50%+</div>
-              <p className="font-montserrat">Cash flow savings</p>
+              <p className="font-montserrat text-white">Cash flow savings</p>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all duration-300">
               <div className="text-4xl font-montserrat font-bold mb-2 text-secondary">$30M+</div>
-              <p className="font-montserrat">Flexible facility sizes</p>
+              <p className="font-montserrat text-white">Flexible facility sizes</p>
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { CircleDollarSign, FileText, Receipt, ShoppingCart, TrendingUp, Rocket } from 'lucide-react';
+import { CircleDollarSign, FileText, Receipt, ShoppingCart, TrendingUp } from 'lucide-react';
 
 const Solutions = () => {
   const solutions = [
@@ -33,12 +33,6 @@ const Solutions = () => {
       description: "Borrow against future customer value with flexible repayment.",
       icon: TrendingUp,
       color: "text-red-600"
-    },
-    {
-      title: "Growth Capital",
-      description: "Flexible facilities for diverse growth initiatives and expansion.",
-      icon: Rocket,
-      color: "text-indigo-600"
     }
   ];
 
@@ -103,15 +97,15 @@ const Solutions = () => {
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
               {[
-                { name: "Direct Consumer E-commerce", emoji: "🛍️" },
-                { name: "B2B Hard Assets", emoji: "🏭" },
-                { name: "SaaS", emoji: "💻" },
-                { name: "Fintech/Specialty Finance", emoji: "💳" },
-                { name: "GPU Hardware", emoji: "🖥️" },
-                { name: "Emerging Verticals", emoji: "🚀" }
+                { name: "Direct Consumer E-commerce", icon: "🛍️" },
+                { name: "B2B Hard Assets", icon: "🏭" },
+                { name: "SaaS", icon: "💻" },
+                { name: "Fintech/Specialty Finance", icon: "💳" },
+                { name: "GPU Hardware", icon: "🖥️" },
+                { name: "Emerging Verticals", icon: "🚀" }
               ].map((industry, index) => (
                 <div key={index} className="bg-white rounded-lg p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300 group">
-                  <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">{industry.emoji}</div>
+                  <div className="text-3xl mb-3 group-hover:scale-110 transition-transform duration-300">{industry.icon}</div>
                   <span className="font-montserrat font-medium text-gray-700 text-sm">{industry.name}</span>
                 </div>
               ))}
