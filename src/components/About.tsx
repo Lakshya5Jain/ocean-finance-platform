@@ -1,4 +1,3 @@
-
 const About = () => {
   return (
     <section id="about" className="py-20 bg-gray-50">
@@ -6,12 +5,13 @@ const About = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-montserrat font-bold text-primary mb-6">
-              Bridging Fintech Precision with Institutional Private Credit
+              Your Growth Story Starts Here
             </h2>
             <p className="text-xl text-gray-600 font-montserrat max-w-4xl mx-auto leading-relaxed">
-              Deep Ocean Partners operates at the intersection of fintech innovation and institutional-grade private credit. 
-              We're not simply a fund or a lender—we're building a platform that fuses technology-enabled underwriting 
-              with seasoned credit structuring expertise to generate superior, risk-adjusted returns.
+              At Deep Ocean Partners, we understand that every business has unique financing needs. Whether you're looking to 
+              expand operations, manage cash flow, or seize new opportunities, we're here to provide the capital and partnership 
+              you need to turn your vision into reality. Our approach combines cutting-edge technology with decades of financial 
+              expertise to deliver solutions that grow with your business.
             </p>
           </div>
 
@@ -59,12 +59,12 @@ const About = () => {
 
           <div className="bg-white rounded-2xl p-8 shadow-lg">
             <h3 className="text-2xl font-montserrat font-bold text-primary mb-6 text-center">
-              We want to be your long term working capital solution.
+              From Application to Growth: We're With You Every Step
             </h3>
             <p className="text-lg text-gray-600 font-montserrat text-center max-w-4xl mx-auto leading-relaxed">
-              We are a next generation tech-enabled working capital provider enabling merchants to borrow more capital at fair terms. 
-              We plug into your existing systems—sales, inventory, banking—to capture a live, 360-degree view of your operations. 
-              Our internal automation models translate those data points into forward-looking cash-flow and collateral forecasts using AI and advanced data methods.
+              Our streamlined process means you get the financing you need, when you need it. We integrate with your existing 
+              systems to understand your business in real-time, enabling us to provide larger credit limits, better terms, and 
+              more flexible repayment options. Because when your business grows, we all succeed.
             </p>
           </div>
         </div>

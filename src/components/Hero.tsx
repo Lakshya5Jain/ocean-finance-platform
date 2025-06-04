@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
@@ -21,13 +20,13 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
         <div className="max-w-4xl mx-auto animate-fade-in">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-montserrat font-light leading-tight mb-8">
-            You <span className="font-bold">built a sophisticated business.</span><br />
-            You <span className="font-bold">deserve a lender who gets it.</span>
+            Your business <span className="font-bold">deserves financing</span><br />
+            that <span className="font-bold">grows with you.</span>
           </h1>
           
           <p className="text-xl md:text-2xl font-montserrat font-light mb-12 max-w-3xl mx-auto leading-relaxed">
-            We combine a data-rich understanding of your business with over 50 years of credit experience 
-            to build flexible financing solutions tailored to your needs.
+            From startups to scaling enterprises, we provide flexible financing solutions that adapt to your unique needs. 
+            Let us help you unlock your business potential with smart capital that fuels growth.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -40,7 +39,7 @@ const Hero = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-white text-white hover:bg-white hover:text-primary font-montserrat font-semibold px-8 py-4 text-lg"
+              className="border-white text-secondary hover:bg-white hover:text-secondary font-montserrat font-semibold px-8 py-4 text-lg"
             >
               Learn More
             </Button>
