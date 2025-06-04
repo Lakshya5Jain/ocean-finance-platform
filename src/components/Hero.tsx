@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
@@ -20,13 +21,12 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 text-center text-white">
         <div className="max-w-4xl mx-auto animate-fade-in">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-montserrat font-light leading-tight mb-8">
-            Your business <span className="font-bold">deserves financing</span><br />
-            that <span className="font-bold">grows with you.</span>
+            You <span className="font-bold">built a sophisticated business.</span><br />
+            You <span className="font-bold">deserve a lender who gets it.</span>
           </h1>
           
-          <p className="text-xl md:text-2xl font-montserrat font-light mb-12 max-w-3xl mx-auto leading-relaxed">
-            From startups to scaling enterprises, we provide flexible financing solutions that adapt to your unique needs. 
-            Let us help you unlock your business potential with smart capital that fuels growth.
+          <p className="text-xl md:text-2xl font-montserrat font-light mb-12 max-w-2xl mx-auto leading-relaxed">
+            We provide the capital you need for your business to succeed.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -39,23 +39,23 @@ const Hero = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-white text-secondary hover:bg-white hover:text-secondary font-montserrat font-semibold px-8 py-4 text-lg"
+              className="border-white text-white hover:bg-white hover:text-secondary font-montserrat font-semibold px-8 py-4 text-lg"
             >
               Learn More
             </Button>
           </div>
 
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <h3 className="text-2xl font-montserrat font-bold mb-2">Up to 2.5×</h3>
-              <p className="font-montserrat">Higher credit limits than traditional ABLs</p>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all duration-300">
+              <div className="text-4xl font-montserrat font-bold mb-2 text-secondary">2.5×</div>
+              <p className="font-montserrat">Higher credit limits</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <h3 className="text-2xl font-montserrat font-bold mb-2">50%+</h3>
-              <p className="font-montserrat">Potential cash flow savings</p>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all duration-300">
+              <div className="text-4xl font-montserrat font-bold mb-2 text-secondary">50%+</div>
+              <p className="font-montserrat">Cash flow savings</p>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6">
-              <h3 className="text-2xl font-montserrat font-bold mb-2">$2M - $30M+</h3>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 hover:bg-white/20 transition-all duration-300">
+              <div className="text-4xl font-montserrat font-bold mb-2 text-secondary">$30M+</div>
               <p className="font-montserrat">Flexible facility sizes</p>
             </div>
           </div>
