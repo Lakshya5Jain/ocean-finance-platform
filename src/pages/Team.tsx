@@ -1,4 +1,3 @@
-
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
@@ -7,7 +6,7 @@ const Team = () => {
     {
       name: "Alex Urdea, CFA",
       title: "Managing Partner",
-      subtitle: "Institutional Investment Process",
+      subtitle: "",
       experience: [
         "Upper90: CoFounder / CIO ($1B+ AUM)",
         "Solus: Head of Strategy and Risk",
@@ -17,8 +16,8 @@ const Team = () => {
     },
     {
       name: "Jon Kalikow",
-      title: "Managing Partner",
-      subtitle: "Complex Structuring, Deep Relationships",
+      title: "Partner",
+      subtitle: "",
       experience: [
         "Gamma Real Estate: CoFounder",
         "Solus: Head of Trading",
@@ -43,8 +42,7 @@ const Team = () => {
       experience: [
         "Sidera Labs: CoFounder; Ecom VC",
         "BlackRock: Data Lead, US Growth",
-        "Point72: Co-head, Consumer Intelligence",
-        "Education: BS/MS Applied Math"
+        "Point72: Co-head, Consumer Intelligence"
       ]
     }
   ];

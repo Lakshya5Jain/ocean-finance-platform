@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import { Phone, Mail, MapPin, Clock, FileText, Calendar } from 'lucide-react';
 import Header from '@/components/Header';
@@ -154,6 +153,37 @@ const Contact = () => {
                   <p className="font-montserrat text-white/80 text-sm">Finalize terms and receive capital</p>
                   <p className="font-montserrat text-secondary text-xs mt-1">1-2 weeks</p>
                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-primary mb-12 text-center">Meet Your Advisors</h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="bg-gray-50 rounded-xl p-6 shadow text-center flex flex-col items-center">
+                <div className="font-montserrat font-bold text-lg mb-2">Alex Urdea</div>
+                <div className="text-gray-700 font-montserrat mb-4">A credit expert with 20+ years of experience, Alex has advised hundreds of companies on the best funding options.<br/><br/>Alex is your go to credit advisor.</div>
+                <a href="https://www.linkedin.com/in/alexurdeanyc/" target="_blank" rel="noopener noreferrer" className="text-[#2C7EF4] font-montserrat font-medium">LinkedIn</a>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-6 shadow text-center flex flex-col items-center">
+                <div className="font-montserrat font-bold text-lg mb-2">Alexey Loganchuk</div>
+                <div className="text-gray-700 font-montserrat mb-4">Curious how a multi-billion dollar PE firm would view your business? Trying to better understand your operational data?<br/><br/>Alexey is your go to data science resource.</div>
+                <a href="https://www.linkedin.com/in/alexeyloganchuk/" target="_blank" rel="noopener noreferrer" className="text-[#2C7EF4] font-montserrat font-medium">LinkedIn</a>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-6 shadow text-center flex flex-col items-center">
+                <div className="font-montserrat font-bold text-lg mb-2">Jon Kalikow</div>
+                <div className="text-gray-700 font-montserrat mb-4">A credit expert with 30+ years of experience, Jon has invested across market environments for numerous institutions.<br/><br/>Jon is your go to funding resource.</div>
+                <a href="https://www.linkedin.com/in/jon-kalikow-0b7b8b6/" target="_blank" rel="noopener noreferrer" className="text-[#2C7EF4] font-montserrat font-medium">LinkedIn</a>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-6 shadow text-center flex flex-col items-center">
+                <div className="font-montserrat font-bold text-lg mb-2">Daniel Jacobini</div>
+                <div className="text-gray-700 font-montserrat mb-4">A career of competitive intelligence ranging from billion dollar enterprises to venture/bootstrapped startups.<br/><br/>Daniel is your go to strategic resource.</div>
+                <a href="https://www.linkedin.com/in/danieljacobini/" target="_blank" rel="noopener noreferrer" className="text-[#2C7EF4] font-montserrat font-medium">LinkedIn</a>
               </div>
             </div>
           </div>

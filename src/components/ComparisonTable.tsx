@@ -1,4 +1,3 @@
-
 import { Check, X } from 'lucide-react';
 
 const ComparisonTable = () => {
@@ -50,13 +49,12 @@ const ComparisonTable = () => {
                   <tr className="bg-gray-50">
                     <th className="px-6 py-4 text-left font-montserrat font-semibold text-gray-700">Feature</th>
                     <th className="px-6 py-4 text-center font-montserrat font-semibold text-secondary bg-secondary/5">
-                      <div className="flex items-center justify-center space-x-2">
+                      <div className="flex items-center justify-center">
                         <img 
                           src="/lovable-uploads/60420b69-db1d-4895-aac8-8227d34c68b2.png" 
                           alt="Deep Ocean Partners" 
-                          className="h-6 w-auto"
+                          className="h-8 w-auto"
                         />
-                        <span>Our Solution</span>
                       </div>
                     </th>
                     <th className="px-6 py-4 text-center font-montserrat font-semibold text-gray-700">Traditional Lenders</th>
@@ -71,9 +69,9 @@ const ComparisonTable = () => {
                       </td>
                       <td className="px-6 py-4 text-center bg-secondary/5">
                         {row.ourSolution ? (
-                          <Check className="h-6 w-6 text-green-600 mx-auto" />
+                          <Check className="h-7 w-7 text-green-600 mx-auto font-bold stroke-[3]" />
                         ) : (
-                          <X className="h-6 w-6 text-red-500 mx-auto" />
+                          <X className="h-7 w-7 text-red-500 mx-auto font-bold stroke-[3]" />
                         )}
                       </td>
                       <td className="px-6 py-4 text-center">

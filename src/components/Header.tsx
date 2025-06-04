@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Menu, X, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -21,21 +20,15 @@ const Header = () => {
             </Link>
           </div>
 
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/about" className="text-gray-700 hover:text-primary transition-colors font-montserrat font-medium">About</Link>
+          <nav className="hidden md:flex items-center space-x-8 mx-auto">
+            <Link to="/" className="text-gray-700 hover:text-primary transition-colors font-montserrat font-medium">About</Link>
             <Link to="/solutions" className="text-gray-700 hover:text-primary transition-colors font-montserrat font-medium">Solutions</Link>
             <Link to="/team" className="text-gray-700 hover:text-primary transition-colors font-montserrat font-medium">Team</Link>
             <Link to="/contact" className="text-gray-700 hover:text-primary transition-colors font-montserrat font-medium">Contact</Link>
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
-            <a href="tel:2129708910" className="flex items-center space-x-1 text-gray-600 hover:text-primary transition-colors">
-              <Phone className="h-4 w-4" />
-              <span className="font-montserrat text-sm">(212) 970-8910</span>
-            </a>
-            <Button className="bg-secondary hover:bg-secondary/90 text-white font-montserrat font-semibold">
-              Get Started
-            </Button>
+            {/* Removed phone number and Get Started button */}
           </div>
 
           <button
@@ -49,18 +42,12 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-200">
             <nav className="flex flex-col space-y-4">
-              <Link to="/about" className="text-gray-700 hover:text-primary transition-colors font-montserrat font-medium">About</Link>
+              <Link to="/" className="text-gray-700 hover:text-primary transition-colors font-montserrat font-medium">About</Link>
               <Link to="/solutions" className="text-gray-700 hover:text-primary transition-colors font-montserrat font-medium">Solutions</Link>
               <Link to="/team" className="text-gray-700 hover:text-primary transition-colors font-montserrat font-medium">Team</Link>
               <Link to="/contact" className="text-gray-700 hover:text-primary transition-colors font-montserrat font-medium">Contact</Link>
               <div className="pt-4 flex flex-col space-y-2">
-                <a href="tel:2129708910" className="flex items-center space-x-1 text-gray-600">
-                  <Phone className="h-4 w-4" />
-                  <span className="font-montserrat text-sm">(212) 970-8910</span>
-                </a>
-                <Button className="bg-secondary hover:bg-secondary/90 text-white font-montserrat font-semibold w-full">
-                  Get Started
-                </Button>
+                {/* Removed phone number and Get Started button */}
               </div>
             </nav>
           </div>
