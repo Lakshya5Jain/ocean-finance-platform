@@ -10,7 +10,6 @@ const SolutionsPage = () => {
       title: "Revolving Lines of Credit",
       description: "Continuous source of funding that you can access as needed. Best for variable spend on inventory / marketing.",
       icon: CircleDollarSign,
-      color: "text-blue-600",
       details: [
         "Flexible draw and repayment schedule",
         "Interest only on funds used",
@@ -22,7 +21,6 @@ const SolutionsPage = () => {
       title: "Term Loans",
       description: "Committed facility that you pay back over a set time with fixed payment terms. Best for planned expenses / opex.",
       icon: FileText,
-      color: "text-green-600",
       details: [
         "Predictable monthly payments",
         "Multi-year terms available",
@@ -34,7 +32,6 @@ const SolutionsPage = () => {
       title: "Receivables / Invoice Financing",
       description: "Allows a business to unlock working capital from near term revenue opportunities (i.e. wholesale).",
       icon: Receipt,
-      color: "text-purple-600",
       details: [
         "Immediate cash flow improvement",
         "Advance rates up to 90%",
@@ -46,7 +43,6 @@ const SolutionsPage = () => {
       title: "Purchase Order Financing",
       description: "Cash advance that can be used to pay your suppliers in order to fulfill larger orders without capital constraints.",
       icon: ShoppingCart,
-      color: "text-orange-600",
       details: [
         "Fund large orders without equity dilution",
         "Quick approval process",
@@ -58,7 +54,6 @@ const SolutionsPage = () => {
       title: "Revenue Based / Cohort Financing",
       description: "Alternative form of financing where a business can borrow a lump sum against the future value of their customers.",
       icon: TrendingUp,
-      color: "text-red-600",
       details: [
         "No personal guarantees required",
         "Payments scale with revenue",
@@ -70,7 +65,6 @@ const SolutionsPage = () => {
       title: "Growth Capital",
       description: "Flexible facility that enables growth underwritten to assets and/or cash flow. Can be used for a variety of purposes.",
       icon: BarChart3,
-      color: "text-indigo-600",
       details: [
         "Customized structure for your needs",
         "Multi-purpose funding",
@@ -81,42 +75,51 @@ const SolutionsPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white font-montserrat">
+    <div className="min-h-screen bg-white">
       <Header />
       
-      <section className="py-20 bg-white mt-20">
-        <div className="container mx-auto px-4">
+      <section className="pt-32 pb-20 bg-white">
+        <div className="container-custom">
           <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h1 className="text-4xl md:text-5xl font-montserrat font-bold text-primary mb-6">
+            <div className="text-center mb-20">
+              <div className="inline-flex items-center px-6 py-3 rounded-full bg-bright-azure/10 border border-bright-azure/20 mb-8">
+                <div className="w-2 h-2 bg-bright-azure rounded-full mr-3"></div>
+                <span className="text-sm font-medium text-bright-azure tracking-wider uppercase">Financing Solutions</span>
+              </div>
+              
+              <h1 className="text-4xl md:text-6xl font-montserrat font-bold text-deep-navy mb-6 leading-tight">
                 How We Solve Your Business Needs
               </h1>
-              <p className="text-xl text-gray-600 font-montserrat max-w-4xl mx-auto">
+              <p className="text-xl text-near-black/70 max-w-4xl mx-auto leading-relaxed">
                 At Deep Ocean Partners, we provide a comprehensive suite of financing solutions designed to meet the diverse needs of growing businesses. Our data-driven approach ensures you get the right capital structure for your unique situation.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
               {solutions.map((solution, index) => {
                 const IconComponent = solution.icon;
                 return (
-                  <Card key={index} className="border-2 hover:border-secondary transition-all duration-300 hover:shadow-xl group h-full">
-                    <CardHeader>
-                      <div className="mb-4">
-                        <IconComponent className={`h-12 w-12 ${solution.color} group-hover:scale-110 transition-transform duration-300`} />
+                  <Card key={index} className="border border-soft-gray hover:border-bright-azure/30 transition-all duration-300 hover:shadow-xl group h-full bg-white">
+                    <CardHeader className="pb-4">
+                      <div className="mb-6">
+                        <div className="w-14 h-14 bg-deep-navy rounded-xl flex items-center justify-center mb-4 group-hover:bg-bright-azure transition-colors duration-300">
+                          <IconComponent className="h-7 w-7 text-white" />
+                        </div>
+                        <CardTitle className="text-xl font-montserrat font-semibold text-deep-navy mb-3">
+                          {solution.title}
+                        </CardTitle>
+                        <CardDescription className="text-base text-near-black/70 leading-relaxed">
+                          {solution.description}
+                        </CardDescription>
                       </div>
-                      <CardTitle className="font-montserrat text-primary text-xl">{solution.title}</CardTitle>
-                      <CardDescription className="font-montserrat text-gray-600 text-base">
-                        {solution.description}
-                      </CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <h4 className="font-montserrat font-semibold text-primary mb-3">Key Benefits:</h4>
-                      <ul className="space-y-2">
+                      <h4 className="font-montserrat font-semibold text-deep-navy mb-4 text-sm uppercase tracking-wider">Key Benefits:</h4>
+                      <ul className="space-y-3">
                         {solution.details.map((detail, detailIndex) => (
-                          <li key={detailIndex} className="flex items-start space-x-2">
-                            <div className="w-2 h-2 bg-secondary rounded-full mt-2 flex-shrink-0"></div>
-                            <span className="font-montserrat text-gray-700 text-sm">{detail}</span>
+                          <li key={detailIndex} className="flex items-start space-x-3">
+                            <div className="w-1.5 h-1.5 bg-bright-azure rounded-full mt-2 flex-shrink-0"></div>
+                            <span className="text-near-black/80 text-sm leading-relaxed">{detail}</span>
                           </li>
                         ))}
                       </ul>
@@ -127,41 +130,65 @@ const SolutionsPage = () => {
             </div>
 
             {/* Process Section */}
-            <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-8 mb-16">
-              <h3 className="text-2xl font-montserrat font-bold text-primary mb-8 text-center">
-                Our Data-Driven Approach
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="text-center">
-                  <div className="bg-primary rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <span className="text-white font-bold text-2xl">1</span>
-                  </div>
-                  <h4 className="font-montserrat font-semibold text-primary mb-2">Data Integration</h4>
-                  <p className="font-montserrat text-gray-600 text-sm">
-                    We connect to your existing systems to capture real-time business metrics
-                  </p>
-                </div>
+            <div className="bg-deep-navy rounded-2xl p-12 mb-20 relative overflow-hidden">
+              <div className="absolute inset-0 ocean-pattern opacity-30"></div>
+              <div className="relative z-10">
+                <h3 className="text-3xl font-montserrat font-bold text-white mb-4 text-center">
+                  Our Data-Driven Approach
+                </h3>
+                <p className="text-lg text-white/80 text-center mb-12 max-w-3xl mx-auto">
+                  We leverage cutting-edge technology and deep financial expertise to deliver customized solutions
+                </p>
                 
-                <div className="text-center">
-                  <div className="bg-primary rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <span className="text-white font-bold text-2xl">2</span>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  <div className="text-center group">
+                    <div className="bg-bright-azure rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-white font-bold text-2xl">1</span>
+                    </div>
+                    <h4 className="font-montserrat font-semibold text-white mb-3 text-lg">Data Integration</h4>
+                    <p className="text-white/80 leading-relaxed">
+                      We connect to your existing systems to capture real-time business metrics and cash flow patterns
+                    </p>
                   </div>
-                  <h4 className="font-montserrat font-semibold text-primary mb-2">AI Analysis</h4>
-                  <p className="font-montserrat text-gray-600 text-sm">
-                    Our models analyze cash flow patterns and predict future performance
-                  </p>
-                </div>
-                
-                <div className="text-center">
-                  <div className="bg-primary rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <span className="text-white font-bold text-2xl">3</span>
+                  
+                  <div className="text-center group">
+                    <div className="bg-bright-azure rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-white font-bold text-2xl">2</span>
+                    </div>
+                    <h4 className="font-montserrat font-semibold text-white mb-3 text-lg">AI Analysis</h4>
+                    <p className="text-white/80 leading-relaxed">
+                      Our proprietary models analyze performance data and predict future growth trajectories
+                    </p>
                   </div>
-                  <h4 className="font-montserrat font-semibold text-primary mb-2">Custom Structure</h4>
-                  <p className="font-montserrat text-gray-600 text-sm">
-                    We design a financing solution that perfectly fits your business model
-                  </p>
+                  
+                  <div className="text-center group">
+                    <div className="bg-bright-azure rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                      <span className="text-white font-bold text-2xl">3</span>
+                    </div>
+                    <h4 className="font-montserrat font-semibold text-white mb-3 text-lg">Custom Structure</h4>
+                    <p className="text-white/80 leading-relaxed">
+                      We design a financing solution that perfectly aligns with your business model and goals
+                    </p>
+                  </div>
                 </div>
               </div>
+            </div>
+
+            {/* Call to Action */}
+            <div className="text-center bg-gradient-to-br from-bright-azure/5 to-deep-navy/5 rounded-2xl p-12">
+              <h3 className="text-3xl font-montserrat font-bold text-deep-navy mb-4">
+                Ready to Accelerate Your Growth?
+              </h3>
+              <p className="text-lg text-near-black/70 mb-8 max-w-2xl mx-auto">
+                Our team is ready to craft a financing solution tailored to your unique business needs
+              </p>
+              <a 
+                href="/contact" 
+                className="inline-flex items-center px-8 py-4 bg-bright-azure hover:bg-bright-azure/90 text-white font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              >
+                Get Your Custom Term Sheet
+                <div className="ml-3 w-2 h-2 bg-white rounded-full"></div>
+              </a>
             </div>
           </div>
         </div>
