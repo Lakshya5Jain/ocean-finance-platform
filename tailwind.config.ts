@@ -27,6 +27,8 @@ export default {
 			fontFamily: {
 				'montserrat': ['Montserrat', 'sans-serif'],
 				'inter': ['Inter', 'sans-serif'],
+				'space-grotesk': ['Space Grotesk', 'sans-serif'],
+				'orbitron': ['Orbitron', 'sans-serif'],
 			},
 			colors: {
 				// Deep Ocean Brand Colors
@@ -36,10 +38,10 @@ export default {
 				'near-black': '#0B0E28',
 				'light-text': '#F9FAFB',
 				
-				// Gradient colors
-				'gradient-start': '#2C7EF4',
-				'gradient-mid': '#5AD7FF',
-				'gradient-end': '#00FFC8',
+							// Gradient colors - using only specified brand colors
+			'gradient-start': '#2C7EF4',
+			'gradient-mid': '#1B5FCE',  // Darker shade of bright-azure
+			'gradient-end': '#052C60',  // Deep navy
 				
 				// Existing shadcn colors
 				border: 'hsl(var(--border))',

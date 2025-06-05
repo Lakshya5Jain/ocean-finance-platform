@@ -1,9 +1,36 @@
 import { Button } from '@/components/ui/button';
-import { Phone, Mail, MapPin, Clock, FileText, Calendar } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, FileText, Calendar, Linkedin } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 const Contact = () => {
+  const teamMembers = [
+    {
+      name: "Alex Urdea",
+      image: "/lovable-uploads/AlexUrdea.png",
+      description: "A credit expert with 20+ years of experience, Alex has advised hundreds of companies on the best funding options.\n\nAlex is your go-to credit advisor.",
+      linkedin: "https://www.linkedin.com/in/aurdea/"
+    },
+    {
+      name: "Alexey Loganchuk",
+      image: "/lovable-uploads/AlexeyLoganchuk.png",
+      description: "Curious how a multi-billion dollar PE firm would view your business? Trying to better understand your operational data?\n\nAlexey is your go-to data science resource.",
+      linkedin: "https://www.linkedin.com/in/alexey-loganchuk-41312646/"
+    },
+    {
+      name: "Jon Kalikow",
+      image: "/lovable-uploads/JonKalikow.png",
+      description: "A credit expert with 30+ years of experience, Jon has invested across market environments for numerous institutions.\n\nJon is your go-to funding resource.",
+      linkedin: "https://www.linkedin.com/in/jonathan-kalikow-2430257/"
+    },
+    {
+      name: "Daniel Jacobini",
+      image: "/lovable-uploads/DanielJacobini.png",
+      description: "A career of competitive intelligence ranging from billion dollar enterprises to venture/bootstrapped startups.\n\nDaniel is your go-to strategic resource.",
+      linkedin: "https://www.linkedin.com/in/daniel-jacobini-6a3362a1/"
+    }
+  ];
+
   return (
     <div className="min-h-screen bg-white font-montserrat">
       <Header />
@@ -163,28 +190,51 @@ const Contact = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-primary mb-12 text-center">Meet Your Advisors</h2>
+            <h2 className="text-3xl md:text-4xl font-montserrat font-bold text-deep-navy mb-12 text-center">Meet Your Advisors</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="bg-gray-50 rounded-xl p-6 shadow text-center flex flex-col items-center">
-                <div className="font-montserrat font-bold text-lg mb-2">Alex Urdea</div>
-                <div className="text-gray-700 font-montserrat mb-4">A credit expert with 20+ years of experience, Alex has advised hundreds of companies on the best funding options.<br/><br/>Alex is your go-to credit advisor.</div>
-                <a href="https://www.linkedin.com/in/alexurdeanyc/" target="_blank" rel="noopener noreferrer" className="text-[#2C7EF4] font-montserrat font-medium">LinkedIn</a>
-              </div>
-              <div className="bg-gray-50 rounded-xl p-6 shadow text-center flex flex-col items-center">
-                <div className="font-montserrat font-bold text-lg mb-2">Alexey Loganchuk</div>
-                <div className="text-gray-700 font-montserrat mb-4">Curious how a multi-billion dollar PE firm would view your business? Trying to better understand your operational data?<br/><br/>Alexey is your go-to data science resource.</div>
-                <a href="https://www.linkedin.com/in/alexeyloganchuk/" target="_blank" rel="noopener noreferrer" className="text-[#2C7EF4] font-montserrat font-medium">LinkedIn</a>
-              </div>
-              <div className="bg-gray-50 rounded-xl p-6 shadow text-center flex flex-col items-center">
-                <div className="font-montserrat font-bold text-lg mb-2">Jon Kalikow</div>
-                <div className="text-gray-700 font-montserrat mb-4">A credit expert with 30+ years of experience, Jon has invested across market environments for numerous institutions.<br/><br/>Jon is your go-to funding resource.</div>
-                <a href="https://www.linkedin.com/in/jon-kalikow-0b7b8b6/" target="_blank" rel="noopener noreferrer" className="text-[#2C7EF4] font-montserrat font-medium">LinkedIn</a>
-              </div>
-              <div className="bg-gray-50 rounded-xl p-6 shadow text-center flex flex-col items-center">
-                <div className="font-montserrat font-bold text-lg mb-2">Daniel Jacobini</div>
-                <div className="text-gray-700 font-montserrat mb-4">A career of competitive intelligence ranging from billion dollar enterprises to venture/bootstrapped startups.<br/><br/>Daniel is your go-to strategic resource.</div>
-                <a href="https://www.linkedin.com/in/danieljacobini/" target="_blank" rel="noopener noreferrer" className="text-[#2C7EF4] font-montserrat font-medium">LinkedIn</a>
-              </div>
+              {teamMembers.map((member, index) => (
+                <div key={index} className="bg-gray-50 rounded-xl p-6 shadow text-center flex flex-col items-center">
+                  {/* Profile Image */}
+                  <div className="w-24 h-24 mb-4">
+                    <img 
+                      src={member.image} 
+                      alt={member.name}
+                      className="w-full h-full object-contain"
+                      onError={(e) => {
+                        // Fallback to initials if image fails to load
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = 'none';
+                        const parent = target.parentElement!;
+                        parent.innerHTML = `
+                          <div class="w-full h-full bg-gradient-to-br from-bright-azure to-deep-navy rounded-full flex items-center justify-center">
+                            <span class="font-montserrat font-bold text-white text-lg">
+                              ${member.name.split(' ').map(n => n[0]).join('').slice(0, 2)}
+                            </span>
+                          </div>
+                        `;
+                      }}
+                    />
+                  </div>
+                  
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="font-montserrat font-bold text-lg">{member.name}</div>
+                    <a 
+                      href={member.linkedin}
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-blue-600 hover:text-blue-700 transition-colors duration-300"
+                    >
+                      <Linkedin className="w-4 h-4" />
+                    </a>
+                  </div>
+                  
+                  <div className="text-gray-700 font-montserrat mb-4 text-sm leading-relaxed">
+                    {member.description.split('\n\n').map((paragraph, pIndex) => (
+                      <p key={pIndex} className={pIndex > 0 ? 'mt-3' : ''}>{paragraph}</p>
+                    ))}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
