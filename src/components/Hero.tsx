@@ -11,81 +11,107 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white">
-      {/* Background Video */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Video with enhanced overlay */}
       <div className="absolute inset-0 z-0">
         <video 
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover scale-105"
           autoPlay 
           muted 
           playsInline 
           loop
           src="https://deepoceanpartners.com/wp-content/uploads/2024/01/MAIN_HEADER-HD-1080.mp4#t=1"
         />
-        <div className="absolute inset-0 bg-white/60"></div>
+        {/* Sophisticated gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-deep-navy/40 via-deep-navy/20 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-deep-navy/60 via-transparent to-deep-navy/30"></div>
+        
+        {/* Animated data points overlay */}
+        <div className="absolute inset-0 opacity-30">
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-bright-azure rounded-full animate-pulse"></div>
+          <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-gradient-end rounded-full animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-gradient-mid rounded-full animate-pulse" style={{animationDelay: '2s'}}></div>
+          <div className="absolute top-2/3 right-1/4 w-1 h-1 bg-bright-azure rounded-full animate-pulse" style={{animationDelay: '3s'}}></div>
+        </div>
       </div>
 
-      {/* Gradient Wave Decoration */}
-      <div className="absolute top-1/3 right-0 w-32 h-full">
-        <div className="gradient-wave w-full"></div>
-      </div>
+      {/* Floating gradient elements */}
+      <div className="absolute top-20 right-20 w-64 h-64 bg-gradient-to-br from-bright-azure/20 to-transparent rounded-full blur-3xl animate-pulse"></div>
+      <div className="absolute bottom-32 left-16 w-96 h-96 bg-gradient-to-tr from-gradient-end/10 to-transparent rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
 
       {/* Content */}
       <div className="relative z-10 container-custom text-center">
         <div className="max-w-6xl mx-auto">
-          <div className="inline-flex items-center px-4 py-2 rounded-full bg-bright-azure/10 border border-bright-azure/20 mb-8">
-            <div className="w-2 h-2 bg-bright-azure rounded-full mr-3"></div>
-            <span className="text-sm font-medium text-bright-azure tracking-wider">NEXT-GEN CREDIT SOLUTIONS</span>
+          {/* Enhanced badge */}
+          <div className="inline-flex items-center px-6 py-3 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-12 shadow-2xl">
+            <div className="w-3 h-3 bg-bright-azure rounded-full mr-4 animate-pulse"></div>
+            <span className="text-sm font-medium text-white tracking-[2px] uppercase">Next-Gen Credit Solutions</span>
+            <div className="ml-4 w-8 h-0.5 bg-gradient-to-r from-bright-azure to-gradient-end rounded-full"></div>
           </div>
 
-          <h1 className="text-display-lg md:text-display-xl text-near-black mb-8 leading-tight">
-            You built a <span className="text-bright-azure">sophisticated</span> business.<br />
-            You deserve a lender who <span className="text-bright-azure">gets it</span>.
+          {/* Main headline with better sizing */}
+          <h1 className="text-5xl md:text-7xl lg:text-8xl text-white mb-12 leading-[0.9] font-light tracking-tight">
+            You built a <span className="font-bold bg-gradient-to-r from-bright-azure via-gradient-mid to-gradient-end bg-clip-text text-transparent">sophisticated</span> business.
+            <br />
+            You deserve a lender who <span className="font-bold bg-gradient-to-r from-bright-azure via-gradient-mid to-gradient-end bg-clip-text text-transparent">gets it</span>.
           </h1>
           
-          <p className="text-body text-near-black/80 mb-12 max-w-4xl mx-auto">
-            We deliver next-generation capital solutions powered by proprietary data science and unmatched Wall Street expertise.
-          </p>
+          {/* Subtitle with glass effect */}
+          <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 mb-16 max-w-5xl mx-auto">
+            <p className="text-xl md:text-2xl text-white/90 leading-relaxed font-light">
+              We deliver next-generation capital solutions powered by proprietary data science and unmatched Wall Street expertise.
+            </p>
+          </div>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+          {/* Enhanced CTA buttons */}
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-20">
             <Link to="/contact">
               <Button 
                 size="lg" 
-                className="bg-bright-azure hover:bg-bright-azure/90 text-white font-medium px-8 py-4 text-lg rounded-lg border-0 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-gradient-to-r from-bright-azure to-gradient-mid hover:from-bright-azure/90 hover:to-gradient-mid/90 text-white font-medium px-12 py-6 text-xl rounded-xl border-0 shadow-2xl hover:shadow-bright-azure/25 transition-all duration-500 transform hover:scale-105"
               >
                 Get Your Term Sheet
+                <div className="ml-3 w-2 h-2 bg-white rounded-full"></div>
               </Button>
             </Link>
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-2 border-near-black/20 text-near-black hover:bg-near-black/5 font-medium px-8 py-4 text-lg rounded-lg transition-all duration-300"
+              className="border-2 border-white/30 bg-white/5 backdrop-blur-sm text-white hover:bg-white/10 font-medium px-12 py-6 text-xl rounded-xl transition-all duration-500 transform hover:scale-105"
               onClick={scrollToNextSection}
             >
               Learn More
+              <div className="ml-3 w-6 h-0.5 bg-gradient-to-r from-white to-transparent rounded-full"></div>
             </Button>
           </div>
 
-          {/* Statistics Cards */}
+          {/* Enhanced statistics with sophisticated styling */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="card-custom text-center hover:shadow-lg transition-shadow duration-300">
-              <div className="text-display-md text-bright-azure mb-3">2.5×</div>
-              <p className="font-medium text-near-black">Higher Credit Limits</p>
-              <div className="mt-4 h-0.5 w-12 bg-gradient-to-r from-gradient-start to-gradient-end rounded-full mx-auto"></div>
+            <div className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-500 transform hover:scale-105">
+              <div className="text-5xl md:text-6xl font-light text-white mb-4 group-hover:text-bright-azure transition-colors duration-300">2.5×</div>
+              <p className="font-medium text-white/80 text-lg">Higher Credit Limits</p>
+              <div className="mt-6 h-1 w-full bg-gradient-to-r from-bright-azure via-gradient-mid to-gradient-end rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
             
-            <div className="card-custom text-center hover:shadow-lg transition-shadow duration-300">
-              <div className="text-display-md text-bright-azure mb-3">50%+</div>
-              <p className="font-medium text-near-black">Cash Flow Savings</p>
-              <div className="mt-4 h-0.5 w-12 bg-gradient-to-r from-gradient-start to-gradient-end rounded-full mx-auto"></div>
+            <div className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-500 transform hover:scale-105">
+              <div className="text-5xl md:text-6xl font-light text-white mb-4 group-hover:text-bright-azure transition-colors duration-300">50%+</div>
+              <p className="font-medium text-white/80 text-lg">Cash Flow Savings</p>
+              <div className="mt-6 h-1 w-full bg-gradient-to-r from-bright-azure via-gradient-mid to-gradient-end rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
             
-            <div className="card-custom text-center hover:shadow-lg transition-shadow duration-300">
-              <div className="text-display-md text-bright-azure mb-3">$30M+</div>
-              <p className="font-medium text-near-black">Flexible Facility Sizes</p>
-              <div className="mt-4 h-0.5 w-12 bg-gradient-to-r from-gradient-start to-gradient-end rounded-full mx-auto"></div>
+            <div className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-500 transform hover:scale-105">
+              <div className="text-5xl md:text-6xl font-light text-white mb-4 group-hover:text-bright-azure transition-colors duration-300">$30M+</div>
+              <p className="font-medium text-white/80 text-lg">Flexible Facility Sizes</p>
+              <div className="mt-6 h-1 w-full bg-gradient-to-r from-bright-azure via-gradient-mid to-gradient-end rounded-full opacity-50 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Scroll indicator */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
     </section>
