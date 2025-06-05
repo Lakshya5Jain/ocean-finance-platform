@@ -162,16 +162,19 @@ const Solutions = () => {
                     icon: Rocket, 
                     description: "Innovative companies in new markets requiring flexible capital for rapid growth and market expansion." 
                   }
-                ].map((industry, index) => (
-                  <div key={index} className="group relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-600/10 rounded-xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
-                    <div className="relative bg-white/5 backdrop-blur-lg rounded-xl p-5 border border-white/10 hover:border-white/20 transition-all duration-500 hover:transform hover:scale-103">
-                      <industry.icon className="w-9 h-9 mb-3 text-blue-400 group-hover:scale-105 transition-transform duration-300" />
-                      <h4 className="text-md font-semibold text-white mb-2">{industry.name}</h4>
-                      <p className="text-slate-300 text-sm leading-relaxed">{industry.description}</p>
+                ].map((industry, index) => {
+                  const Icon = industry.icon;
+                  return (
+                    <div key={index} className="group relative">
+                      <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-cyan-600/10 rounded-xl blur-lg group-hover:blur-xl transition-all duration-500"></div>
+                      <div className="relative bg-white/5 backdrop-blur-lg rounded-xl p-5 border border-white/10 hover:border-white/20 transition-all duration-500 hover:transform hover:scale-103">
+                        <Icon className="w-9 h-9 mb-3 text-blue-400 group-hover:scale-105 transition-transform duration-300" />
+                        <h4 className="text-md font-semibold text-white mb-2">{industry.name}</h4>
+                        <p className="text-slate-300 text-sm leading-relaxed">{industry.description}</p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>
