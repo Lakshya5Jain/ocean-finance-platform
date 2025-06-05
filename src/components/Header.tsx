@@ -29,8 +29,9 @@ const Header = () => {
               <img 
                 src="/lovable-uploads/60420b69-db1d-4895-aac8-8227d34c68b2.png" 
                 alt="Deep Ocean Partners" 
-                className="h-20 w-auto transition-all duration-500 group-hover:scale-110"
-                style={{ filter: 'none' }}
+                className={`h-16 w-auto transition-all duration-500 group-hover:scale-110 ${
+                  isScrolled ? 'filter brightness-0 invert' : 'filter brightness-0 invert'
+                }`}
               />
             </Link>
           </div>
