@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 import tailwindcssAnimate from "tailwindcss-animate";
 
@@ -14,16 +13,35 @@ export default {
 	theme: {
 		container: {
 			center: true,
-			padding: '2rem',
+			padding: {
+				DEFAULT: '80px',
+				sm: '20px',
+				md: '40px',
+				lg: '80px',
+			},
 			screens: {
-				'2xl': '1400px'
+				'2xl': '1440px'
 			}
 		},
 		extend: {
 			fontFamily: {
 				'montserrat': ['Montserrat', 'sans-serif'],
+				'inter': ['Inter', 'sans-serif'],
 			},
 			colors: {
+				// Deep Ocean Brand Colors
+				'deep-navy': '#052C60',
+				'bright-azure': '#2C7EF4',
+				'soft-gray': '#E5E7EB',
+				'near-black': '#0B0E28',
+				'light-text': '#F9FAFB',
+				
+				// Gradient colors
+				'gradient-start': '#2C7EF4',
+				'gradient-mid': '#5AD7FF',
+				'gradient-end': '#00FFC8',
+				
+				// Existing shadcn colors
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -57,21 +75,21 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				}
+			},
+			spacing: {
+				'section-y': '100px',
+				'gutter': '80px',
 			},
 			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				lg: '12px',
+				md: '8px',
+				sm: '4px'
+			},
+			fontSize: {
+				'display-xl': ['96px', { lineHeight: '1.1', letterSpacing: '0.5px' }],
+				'display-lg': ['72px', { lineHeight: '1.1', letterSpacing: '0.5px' }],
+				'display-md': ['48px', { lineHeight: '1.1', letterSpacing: '0.5px' }],
+				'body': ['18px', { lineHeight: '1.6' }],
 			},
 			keyframes: {
 				'accordion-down': {
@@ -90,23 +108,32 @@ export default {
 						height: '0'
 					}
 				},
-				'fade-in': {
+				'fade-in-up': {
 					'0%': {
 						opacity: '0',
-						transform: 'translateY(20px)'
+						transform: 'translateY(10px)'
 					},
 					'100%': {
 						opacity: '1',
 						transform: 'translateY(0)'
+					}
+				},
+				'gradient-flow': {
+					'0%': {
+						transform: 'translateX(-100%)'
+					},
+					'100%': {
+						transform: 'translateX(100%)'
 					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.6s ease-out'
+				'fade-in-up': 'fade-in-up 0.12s ease-out',
+				'gradient-flow': 'gradient-flow 6s ease-in-out infinite',
 			}
 		}
 	},
-       plugins: [tailwindcssAnimate],
+	plugins: [tailwindcssAnimate],
 } satisfies Config;
