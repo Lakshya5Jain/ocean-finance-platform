@@ -100,9 +100,17 @@ const Hero = () => {
         `
       }} />
       
-      {/* Background with gradient overlay */}
+      {/* Background Video */}
       <div className="absolute inset-0 z-0">
-        <div className="w-full h-full bg-gradient-to-br from-blue-50 via-white to-blue-100"></div>
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        >
+          <source src="/Background.mp4" type="video/mp4" />
+        </video>
         {/* Enhanced gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-white/50 to-white/30 backdrop-blur-sm animate-pulse-slow"></div>
         <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-white/90"></div>
