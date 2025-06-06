@@ -157,14 +157,7 @@ const Team = () => {
             justify-content: flex-start;
             text-align: left;
           }
-          .team-link {
-            color: #2C7EF4;
-            text-decoration: none;
-            transition: text-decoration 0.2s ease;
-          }
-          .team-link:hover {
-            text-decoration: underline;
-          }
+
         `
       }} />
       <Header />
@@ -264,7 +257,7 @@ const Team = () => {
                               href={member.linkedin}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="team-link text-sm leading-relaxed"
+                              className="text-bright-azure hover:underline text-sm leading-relaxed transition-all duration-200"
                               style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}
                             >
                               LinkedIn Profile
