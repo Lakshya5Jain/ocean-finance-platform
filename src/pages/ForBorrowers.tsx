@@ -64,12 +64,51 @@ const ForBorrowers = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>
+    <div className="min-h-screen relative font-source-sans overflow-hidden">
+      {/* Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="fixed top-0 left-0 w-full object-cover z-0"
+        style={{ 
+          height: '110vh', 
+          objectPosition: 'center center', 
+          transform: 'translateY(-5%)' 
+        }}
+      >
+        <source src="/Submarine_s_Deep_Ocean_Search.mp4" type="video/mp4" />
+      </video>
+      
+      {/* Animated Dark overlay for better text readability */}
+      <div className="fixed top-0 left-0 w-full h-full bg-gradient-to-br from-black/60 via-black/50 to-black/40 z-10 animate-pulse-slow"></div>
+      
+      {/* Floating Geometric Elements */}
+      <div className="fixed inset-0 z-10 pointer-events-none overflow-hidden">
+        <div className="absolute top-20 left-10 w-32 h-32 border border-[#2C7EF4]/20 animate-float-slow transform rotate-45"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 border-2 border-[#052C60]/30 animate-float-medium"></div>
+        <div className="absolute bottom-40 left-20 w-16 h-16 bg-[#2C7EF4]/10 animate-float-fast"></div>
+        <div className="absolute bottom-20 right-10 w-20 h-20 border border-white/20 animate-float-slow transform rotate-12"></div>
+      </div>
+      
       <style dangerouslySetInnerHTML={{
         __html: `
           @keyframes float {
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-20px); }
+          }
+          @keyframes float-slow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+          }
+          @keyframes float-medium {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(90deg); }
+          }
+          @keyframes float-fast {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(45deg); }
           }
           @keyframes slide-up {
             from { opacity: 0; transform: translateY(30px); }
@@ -88,56 +127,101 @@ const ForBorrowers = () => {
             0%, 100% { box-shadow: 0 0 20px rgba(44, 126, 244, 0.3); }
             50% { box-shadow: 0 0 40px rgba(44, 126, 244, 0.6); }
           }
+          @keyframes pulse-slow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.6; }
+          }
+          @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+          }
+          @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(44, 126, 244, 0.2); }
+            50% { box-shadow: 0 0 30px rgba(44, 126, 244, 0.4); }
+          }
+          @keyframes bounce-subtle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+          }
           .animate-float { animation: float 3s ease-in-out infinite; }
+          .animate-float-slow {
+            animation: float-slow 8s ease-in-out infinite;
+          }
+          .animate-float-medium {
+            animation: float-medium 6s ease-in-out infinite;
+          }
+          .animate-float-fast {
+            animation: float-fast 4s ease-in-out infinite;
+          }
           .animate-slide-up { animation: slide-up 0.8s ease-out forwards; }
           .animate-fade-in { animation: fade-in 1s ease-out forwards; }
           .animate-data-flow { animation: data-flow 3s ease-in-out infinite; }
           .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+          .animate-pulse-slow {
+            animation: pulse-slow 4s ease-in-out infinite;
+          }
+          .shimmer-effect {
+            background: none;
+            animation: shimmer 2s infinite;
+            text-shadow: 0 0 8px rgba(44, 126, 244, 0.5);
+          }
+          .animate-scroll {
+            animation: scroll 8s linear infinite;
+          }
           
-          /* Style guide components */
-          .borrowers-card {
+          /* Deep Ocean Style Guide */
+          .ocean-card {
             background: #FFFFFF;
             border: 1px solid #030303;
             box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1);
             border-radius: 0px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
           }
-          .borrowers-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+          .ocean-card:hover {
+            transform: translateY(-6px) scale(1.02);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+            border-color: #2C7EF4;
           }
-          .borrowers-button {
+          .ocean-button {
             background: #2C7EF4;
             color: #FFFFFF;
             border: none;
             border-radius: 0px;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 8px;
           }
-          .borrowers-button:hover {
-            background: #1B5FCE;
-            transform: translateY(-2px);
+          .ocean-button:hover {
+            background: #1F5FCE;
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(44, 126, 244, 0.3);
           }
-          .borrowers-link {
+          .ocean-link {
             color: #2C7EF4;
             text-decoration: none;
             transition: all 0.3s ease;
           }
-          .borrowers-link:hover {
+          .ocean-link:hover {
             text-decoration: underline;
           }
         `
       }} />
-      <Header />
       
-      <main className="pt-24">
+      {/* Content overlay */}
+      <div className="relative z-20">
+        <Header />
+        
+        <main className="pt-24">
         {/* Hero Section */}
-        <section className="py-20 bg-gradient-to-br from-[#052C60] via-[#1a4b8a] to-[#2C7EF4] text-white relative overflow-hidden">
+        <section className="py-20 bg-gradient-to-br from-[#052C60]/20 to-black/30 backdrop-blur-sm text-white relative overflow-hidden">
           {/* Animated Background Elements */}
-          <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute inset-0 overflow-hidden opacity-30">
             <div className="absolute top-20 left-10 w-32 h-32 bg-[#2C7EF4]/20 rounded-full blur-xl animate-pulse"></div>
             <div className="absolute top-40 right-20 w-24 h-24 bg-white/10 rounded-full blur-lg animate-bounce" style={{ animationDelay: '1s' }}></div>
             <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-[#2C7EF4]/30 rounded-full blur-md animate-pulse" style={{ animationDelay: '2s' }}></div>
@@ -155,65 +239,80 @@ const ForBorrowers = () => {
           
           <div className="container-custom relative z-10">
             <div className="max-w-5xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-6 py-3 mb-8 animate-fade-in borrowers-card">
-                <Sparkles className="w-5 h-5 text-[#2C7EF4]" />
-                <span className="text-blue-100" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>Trusted by 1,000+ Growing Businesses</span>
-              </div>
-              <h1 className="text-6xl md:text-7xl font-medium mb-8 leading-tight animate-slide-up" style={{ fontFamily: 'Lora, Georgia, serif' }}>
-                You built a <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2C7EF4] to-cyan-200">sophisticated business.</span>
+              <h1 className="text-6xl md:text-7xl font-medium mb-8 leading-tight animate-slide-up drop-shadow-lg" style={{ fontFamily: 'Lora, Georgia, serif' }}>
+                Deep Ocean gives you credit for assets overlooked by other lenders.
               </h1>
-              <h2 className="text-3xl md:text-4xl font-medium mb-8 text-blue-100 animate-slide-up" style={{ fontFamily: 'Lora, Georgia, serif', animationDelay: '0.2s' }}>
-                You deserve a lender who gets it.
-              </h2>
-              <p className="text-xl md:text-2xl text-blue-200 leading-relaxed mb-12 max-w-4xl mx-auto animate-slide-up" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif', animationDelay: '0.4s' }}>
-                Bridging Fintech with Institutional Private Credit to help business scale.
+              <p className="text-2xl md:text-3xl text-blue-200 leading-relaxed mb-12 max-w-4xl mx-auto animate-slide-up drop-shadow-lg" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif', animationDelay: '0.2s' }}>
+                Create a custom financing plan to help you reach your goals.
               </p>
-              <p className="text-lg text-blue-300 mb-12 max-w-3xl mx-auto animate-slide-up" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif', animationDelay: '0.6s' }}>
-                Deep Ocean gives you credit for assets overlooked by other lenders. Create a custom financing plan to help you reach your goals.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-slide-up" style={{ animationDelay: '0.8s' }}>
-                <button className="borrowers-button px-10 py-5 text-lg font-semibold shadow-2xl hover:shadow-3xl" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>
-                  Get Your Custom Quote
-                  <ArrowRight className="w-6 h-6" />
-                </button>
-                <button className="px-10 py-5 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-medium text-lg border border-white/20 hover:border-white/40 transition-all duration-300 hover:scale-105" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif', borderRadius: '0px' }}>
-                  See How It Works
-                </button>
-              </div>
             </div>
           </div>
         </section>
 
-        {/* Key Metrics Section */}
-        <section className="py-16 bg-white">
+        {/* Logo Carousel Section */}
+        <section className="py-16 bg-white/95 backdrop-blur-sm relative">
           <div className="container-custom">
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center group">
-                <div className="text-5xl md:text-6xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#052C60] to-[#2C7EF4] mb-4 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'Lora, Georgia, serif' }}>
-                  $14.7B+
+            <div className="text-center mb-8">
+              <h2 className="text-2xl md:text-3xl font-medium text-gray-900 mb-4" style={{ fontFamily: 'Lora, Georgia, serif' }}>
+                Top Brands Taking Advantage of Deep Ocean Partners
+              </h2>
+            </div>
+            <div className="overflow-hidden">
+              <div className="flex animate-scroll">
+                {/* First set of logos */}
+                <div className="flex items-center justify-center min-w-0 flex-shrink-0 px-4">
+                  <img src="/Logos/RC_vf.png" alt="Ring Concierge" className="h-6 md:h-8 object-contain grayscale hover:grayscale-0 hover:scale-110 transition-all duration-300" />
                 </div>
-                <p className="text-gray-600 font-medium" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>funded since 2023</p>
-              </div>
-              <div className="text-center group">
-                <div className="text-5xl md:text-6xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#052C60] to-[#2C7EF4] mb-4 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'Lora, Georgia, serif' }}>
-                  $940M
+                <div className="flex items-center justify-center min-w-0 flex-shrink-0 px-4">
+                  <img src="/Logos/Geologie_vf.png" alt="Geologie" className="h-6 md:h-8 object-contain grayscale hover:grayscale-0 hover:scale-110 transition-all duration-300" />
                 </div>
-                <p className="text-gray-600 font-medium" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>currently in active funding</p>
-              </div>
-              <div className="text-center group">
-                <div className="text-5xl md:text-6xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-[#052C60] to-[#2C7EF4] mb-4 group-hover:scale-110 transition-transform duration-300" style={{ fontFamily: 'Lora, Georgia, serif' }}>
-                  $7.1B
+                <div className="flex items-center justify-center min-w-0 flex-shrink-0 px-4">
+                  <img src="/Logos/Haven_vf.png" alt="Haven" className="h-6 md:h-8 object-contain grayscale hover:grayscale-0 hover:scale-110 transition-all duration-300" />
                 </div>
-                <p className="text-gray-600 font-medium" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>ready in forward commitments</p>
+                <div className="flex items-center justify-center min-w-0 flex-shrink-0 px-4">
+                  <img src="/Logos/Juvenon_vf.png" alt="Juvenon" className="h-6 md:h-8 object-contain grayscale hover:grayscale-0 hover:scale-110 transition-all duration-300" />
+                </div>
+                <div className="flex items-center justify-center min-w-0 flex-shrink-0 px-4">
+                  <img src="/Logos/Naadam_vf.png" alt="Naadam" className="h-6 md:h-8 object-contain grayscale hover:grayscale-0 hover:scale-110 transition-all duration-300" />
+                </div>
+                <div className="flex items-center justify-center min-w-0 flex-shrink-0 px-4">
+                  <img src="/Logos/Cure_vf.png" alt="Cure" className="h-6 md:h-8 object-contain grayscale hover:grayscale-0 hover:scale-110 transition-all duration-300" />
+                </div>
+                <div className="flex items-center justify-center min-w-0 flex-shrink-0 px-4">
+                  <img src="/Logos/Diggs_vf.png" alt="Diggs" className="h-6 md:h-8 object-contain grayscale hover:grayscale-0 hover:scale-110 transition-all duration-300" />
+                </div>
+                {/* Duplicate set for seamless loop */}
+                <div className="flex items-center justify-center min-w-0 flex-shrink-0 px-4">
+                  <img src="/Logos/RC_vf.png" alt="Ring Concierge" className="h-6 md:h-8 object-contain grayscale hover:grayscale-0 hover:scale-110 transition-all duration-300" />
+                </div>
+                <div className="flex items-center justify-center min-w-0 flex-shrink-0 px-4">
+                  <img src="/Logos/Geologie_vf.png" alt="Geologie" className="h-6 md:h-8 object-contain grayscale hover:grayscale-0 hover:scale-110 transition-all duration-300" />
+                </div>
+                <div className="flex items-center justify-center min-w-0 flex-shrink-0 px-4">
+                  <img src="/Logos/Haven_vf.png" alt="Haven" className="h-6 md:h-8 object-contain grayscale hover:grayscale-0 hover:scale-110 transition-all duration-300" />
+                </div>
+                <div className="flex items-center justify-center min-w-0 flex-shrink-0 px-4">
+                  <img src="/Logos/Juvenon_vf.png" alt="Juvenon" className="h-6 md:h-8 object-contain grayscale hover:grayscale-0 hover:scale-110 transition-all duration-300" />
+                </div>
+                <div className="flex items-center justify-center min-w-0 flex-shrink-0 px-4">
+                  <img src="/Logos/Naadam_vf.png" alt="Naadam" className="h-6 md:h-8 object-contain grayscale hover:grayscale-0 hover:scale-110 transition-all duration-300" />
+                </div>
+                <div className="flex items-center justify-center min-w-0 flex-shrink-0 px-4">
+                  <img src="/Logos/Cure_vf.png" alt="Cure" className="h-6 md:h-8 object-contain grayscale hover:grayscale-0 hover:scale-110 transition-all duration-300" />
+                </div>
+                <div className="flex items-center justify-center min-w-0 flex-shrink-0 px-4">
+                  <img src="/Logos/Diggs_vf.png" alt="Diggs" className="h-6 md:h-8 object-contain grayscale hover:grayscale-0 hover:scale-110 transition-all duration-300" />
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Flywheel Data Transformation Intro */}
-        <section ref={dataFlowRef} className="py-20 bg-gradient-to-br from-gray-900 via-[#052C60] to-[#1a4b8a] text-white relative overflow-hidden">
+        {/* Data Transformation Process */}
+        <section ref={dataFlowRef} className="py-20 bg-gradient-to-br from-gray-900/80 via-[#052C60]/80 to-[#1a4b8a]/80 backdrop-blur-sm text-white relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(44,126,244,0.1)_0%,transparent_70%)]"></div>
           <div className="container-custom relative z-10">
+            {/* Header Section */}
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-medium mb-6" style={{ fontFamily: 'Lora, Georgia, serif' }}>
                 Watch Your Data Transform Into Capital
@@ -222,107 +321,233 @@ const ForBorrowers = () => {
                 See how our AI-powered platform turns your business data into actionable insights and credit decisions
               </p>
             </div>
+
+            {/* Modern Horizontal Workflow */}
+            <div className="flex flex-col lg:flex-row items-center justify-center gap-8 max-w-7xl mx-auto">
+              
+              {/* Step 1 - Your Business Data */}
+              <div className="flex-1 max-w-sm">
+                <div className="text-center mb-6">
+                  <h3 className="text-xl font-medium text-white mb-2" style={{ fontFamily: 'Lora, Georgia, serif' }}>
+                    Your Business Data
+                  </h3>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-500 group">
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="flex flex-col items-center gap-2 p-3 bg-white/5 rounded-xl group-hover:bg-white/10 transition-all duration-300">
+                      <CreditCard className="w-6 h-6 text-[#2C7EF4]" />
+                      <span className="text-white text-sm font-medium">Stripe</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-2 p-3 bg-white/5 rounded-xl group-hover:bg-white/10 transition-all duration-300">
+                      <Building className="w-6 h-6 text-[#2C7EF4]" />
+                      <span className="text-white text-sm font-medium">QuickBooks</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-2 p-3 bg-white/5 rounded-xl group-hover:bg-white/10 transition-all duration-300">
+                      <Laptop className="w-6 h-6 text-[#2C7EF4]" />
+                      <span className="text-white text-sm font-medium">Shopify</span>
+                    </div>
+                    <div className="flex flex-col items-center gap-2 p-3 bg-white/5 rounded-xl group-hover:bg-white/10 transition-all duration-300">
+                      <Database className="w-6 h-6 text-[#2C7EF4]" />
+                      <span className="text-white text-sm font-medium">Banking</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Flow Arrow 1 */}
+              <div className="flex items-center justify-center">
+                <div className="hidden lg:block">
+                  <ChevronRight className="w-10 h-10 text-[#2C7EF4] animate-pulse" />
+                </div>
+                <div className="lg:hidden rotate-90">
+                  <ChevronRight className="w-8 h-8 text-[#2C7EF4] animate-pulse" />
+                </div>
+              </div>
+
+              {/* Step 2 - Deep Ocean Partners */}
+              <div className="flex-1 max-w-sm">
+                <div className="text-center mb-6">
+                  <h3 className="text-xl font-medium text-white mb-2" style={{ fontFamily: 'Lora, Georgia, serif' }}>
+                    Deep Ocean Partners
+                  </h3>
+                </div>
+                <div className="bg-gradient-to-br from-[#2C7EF4]/20 to-indigo-500/20 backdrop-blur-sm p-8 rounded-2xl border border-[#2C7EF4]/30 animate-pulse-glow">
+                  <div className="flex justify-center mb-6">
+                    <div className="w-20 h-20 bg-gradient-to-br from-[#2C7EF4] to-indigo-400 rounded-2xl flex items-center justify-center animate-float">
+                      <Brain className="w-10 h-10 text-white" />
+                    </div>
+                  </div>
+                  <div className="space-y-3 mb-6">
+                    <div className="h-2 bg-white/30 rounded-full animate-pulse"></div>
+                    <div className="h-2 bg-white/20 rounded-full w-4/5 mx-auto animate-pulse" style={{ animationDelay: '0.2s' }}></div>
+                    <div className="h-2 bg-white/25 rounded-full w-3/5 mx-auto animate-pulse" style={{ animationDelay: '0.4s' }}></div>
+                  </div>
+                  <p className="text-blue-200 text-sm font-medium text-center">Processing 1000+ data points</p>
+                </div>
+              </div>
+
+              {/* Flow Arrow 2 */}
+              <div className="flex items-center justify-center">
+                <div className="hidden lg:block">
+                  <ChevronRight className="w-10 h-10 text-[#2C7EF4] animate-pulse" style={{ animationDelay: '0.5s' }} />
+                </div>
+                <div className="lg:hidden rotate-90">
+                  <ChevronRight className="w-8 h-8 text-[#2C7EF4] animate-pulse" style={{ animationDelay: '0.5s' }} />
+                </div>
+              </div>
+
+              {/* Step 3 - Instant Results */}
+              <div className="flex-1 max-w-sm">
+                <div className="text-center mb-6">
+                  <h3 className="text-xl font-medium text-white mb-2" style={{ fontFamily: 'Lora, Georgia, serif' }}>
+                    Instant Results
+                  </h3>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/15 transition-all duration-500 group">
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-3 p-3 bg-green-500/10 rounded-xl border border-green-400/20 group-hover:bg-green-500/15 transition-all duration-300">
+                      <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <TrendingUp className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-white font-medium text-sm">Credit Score: 850</span>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-green-500/10 rounded-xl border border-green-400/20 group-hover:bg-green-500/15 transition-all duration-300">
+                      <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <BarChart3 className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-white font-medium text-sm">Limit: $2.5M</span>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-green-500/10 rounded-xl border border-green-400/20 group-hover:bg-green-500/15 transition-all duration-300">
+                      <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <PieChart className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-white font-medium text-sm">Rate: 8.5%</span>
+                    </div>
+                    <div className="flex items-center gap-3 p-3 bg-green-500/10 rounded-xl border border-green-400/20 group-hover:bg-green-500/15 transition-all duration-300">
+                      <div className="w-8 h-8 bg-green-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <Activity className="w-4 h-4 text-white" />
+                      </div>
+                      <span className="text-white font-medium text-sm">Terms: 24 mo.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
         </section>
 
 
 
-        {/* How We Help Section */}
-        <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+        {/* How Deep Ocean Works Section */}
+        <section className="py-20 bg-gradient-to-br from-slate-50/95 to-blue-50/95 backdrop-blur-sm relative">
           <div className="container-custom">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6" style={{ fontFamily: 'Lora, Georgia, serif' }}>
+              <h2 className="text-4xl md:text-5xl font-medium text-[#000000] mb-6" style={{ fontFamily: 'Lora, Georgia, serif', fontWeight: 500 }}>
                 How Deep Ocean Works For You
               </h2>
-              <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>
+              <p className="text-xl text-[#000000] max-w-4xl mx-auto leading-relaxed" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif', fontWeight: 400 }}>
                 We combine a data-rich understanding of your business with over 50 years of credit experience to build flexible financing solutions tailored to your needs.
               </p>
             </div>
             
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <div className="space-y-8">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#2C7EF4] flex items-center justify-center flex-shrink-0">
-                      <Database className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-medium text-gray-900 mb-2" style={{ fontFamily: 'Lora, Georgia, serif' }}>Live Data Integration</h3>
-                      <p className="text-gray-600" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>We plug into your existing systems—sales, inventory, banking—to capture a live, 360-degree view of your operations.</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#2C7EF4] flex items-center justify-center flex-shrink-0">
-                      <LineChart className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-medium text-gray-900 mb-2" style={{ fontFamily: 'Lora, Georgia, serif' }}>Predictive Analytics</h3>
-                      <p className="text-gray-600" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>Our internal automation models translate those data points into forward-looking cash-flow and collateral forecasts.</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#2C7EF4] flex items-center justify-center flex-shrink-0">
-                      <Rocket className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-medium text-gray-900 mb-2" style={{ fontFamily: 'Lora, Georgia, serif' }}>Flexible Credit Lines</h3>
-                      <p className="text-gray-600" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>Armed with those insights, we issue a flexible credit line up to 2.5× larger and often cheaper than traditional loans.</p>
-                    </div>
-                  </div>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="ocean-card p-8 text-center group">
+                <div className="w-16 h-16 bg-[#2C7EF4] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#1F5FCE] group-hover:scale-110" style={{ borderRadius: '0px' }}>
+                  <Database className="w-8 h-8 text-white transition-transform duration-300 group-hover:rotate-12" />
                 </div>
+                <h3 className="text-xl font-medium text-[#000000] mb-4 transition-colors duration-300 group-hover:text-[#2C7EF4]" style={{ fontFamily: 'Lora, Georgia, serif', fontWeight: 500 }}>Live Data Integration</h3>
+                <p className="text-[#000000] leading-relaxed" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif', fontWeight: 400 }}>We plug into your existing systems—sales, inventory, banking—to capture a live, 360-degree view of your operations.</p>
               </div>
               
-              <div className="borrowers-card p-8">
-                <h3 className="text-2xl font-medium text-gray-900 mb-6" style={{ fontFamily: 'Lora, Georgia, serif' }}>We Realize Your Potential</h3>
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="font-semibold text-[#2C7EF4] mb-2" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>More Capital</h4>
-                    <p className="text-gray-600" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>Up to 1.5x to 2.5x higher credit limits than traditional ABLs by receiving credit for both your balance sheet assets and future revenue.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[#2C7EF4] mb-2" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>Improved Cash Flow</h4>
-                    <p className="text-gray-600" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>Potential for 50%+ cash flow savings versus revenue-based fintechs by accessing fixed monthly payments over a multi-year term.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[#2C7EF4] mb-2" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>More Flexibility</h4>
-                    <p className="text-gray-600" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>Large lenders have rigid underwriting and covenants. We provide flexible funding to meet your diverse business needs.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-[#2C7EF4] mb-2" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>Flexible Solutions</h4>
-                    <p className="text-gray-600" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>We can grow with you - our facilities scale up to $30m, and our terms improve as your business matures. We want to be your long term working capital solution.</p>
-                  </div>
+              <div className="ocean-card p-8 text-center group">
+                <div className="w-16 h-16 bg-[#2C7EF4] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#1F5FCE] group-hover:scale-110" style={{ borderRadius: '0px' }}>
+                  <LineChart className="w-8 h-8 text-white transition-transform duration-300 group-hover:rotate-12" />
                 </div>
+                <h3 className="text-xl font-medium text-[#000000] mb-4 transition-colors duration-300 group-hover:text-[#2C7EF4]" style={{ fontFamily: 'Lora, Georgia, serif', fontWeight: 500 }}>Predictive Analytics</h3>
+                <p className="text-[#000000] leading-relaxed" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif', fontWeight: 400 }}>Our internal automation models translate those data points into forward-looking cash-flow and collateral forecasts.</p>
+              </div>
+              
+              <div className="ocean-card p-8 text-center group">
+                <div className="w-16 h-16 bg-[#2C7EF4] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#1F5FCE] group-hover:scale-110" style={{ borderRadius: '0px' }}>
+                  <Rocket className="w-8 h-8 text-white transition-transform duration-300 group-hover:rotate-12" />
+                </div>
+                <h3 className="text-xl font-medium text-[#000000] mb-4 transition-colors duration-300 group-hover:text-[#2C7EF4]" style={{ fontFamily: 'Lora, Georgia, serif', fontWeight: 500 }}>Flexible Credit Lines</h3>
+                <p className="text-[#000000] leading-relaxed" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif', fontWeight: 400 }}>Armed with those insights, we issue a flexible credit line up to 2.5× larger and often cheaper than traditional loans.</p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Comparison Table */}
-        <section className="py-20 bg-white">
+        {/* We Realize Your Potential Section */}
+        <section className="py-20 bg-white/95 backdrop-blur-sm relative">
           <div className="container-custom">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6" style={{ fontFamily: 'Lora, Georgia, serif' }}>
-                Compare for yourself
+              <h2 className="text-4xl md:text-5xl font-medium text-[#000000] mb-6" style={{ fontFamily: 'Lora, Georgia, serif', fontWeight: 500 }}>
+                We Realize Your Potential
               </h2>
-              <p className="text-xl text-gray-600" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>See how Deep Ocean Partners stacks up against traditional and fintech lenders</p>
             </div>
             
-                          <div className="max-w-4xl mx-auto">
-                <div className="borrowers-card overflow-hidden">
-                  <div className="grid grid-cols-4 bg-gray-50">
-                    <div className="p-6 font-medium text-gray-900" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}></div>
-                    <div className="p-6 text-center">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="ocean-card p-8 text-center group">
+                <div className="w-16 h-16 bg-[#2C7EF4] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#1F5FCE] group-hover:scale-110" style={{ borderRadius: '0px' }}>
+                  <TrendingUp className="w-8 h-8 text-white transition-transform duration-300 group-hover:rotate-12" />
+                </div>
+                <h3 className="text-xl font-medium text-[#2C7EF4] mb-4 transition-colors duration-300 group-hover:text-[#1F5FCE]" style={{ fontFamily: 'Lora, Georgia, serif', fontWeight: 500 }}>More Capital</h3>
+                <p className="text-[#000000] leading-relaxed" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif', fontWeight: 400 }}>Up to 1.5x to 2.5x higher credit limits than traditional ABLs by receiving credit for both your balance sheet assets and future revenue.</p>
+              </div>
+              
+              <div className="ocean-card p-8 text-center group">
+                <div className="w-16 h-16 bg-[#2C7EF4] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#1F5FCE] group-hover:scale-110" style={{ borderRadius: '0px' }}>
+                  <RotateCw className="w-8 h-8 text-white transition-transform duration-300 group-hover:animate-spin" />
+                </div>
+                <h3 className="text-xl font-medium text-[#2C7EF4] mb-4 transition-colors duration-300 group-hover:text-[#1F5FCE]" style={{ fontFamily: 'Lora, Georgia, serif', fontWeight: 500 }}>Improved Cash Flow</h3>
+                <p className="text-[#000000] leading-relaxed" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif', fontWeight: 400 }}>Potential for 50%+ cash flow savings versus revenue-based fintechs by accessing fixed monthly payments over a multi-year term.</p>
+              </div>
+              
+              <div className="ocean-card p-8 text-center group">
+                <div className="w-16 h-16 bg-[#2C7EF4] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#1F5FCE] group-hover:scale-110" style={{ borderRadius: '0px' }}>
+                  <Lightbulb className="w-8 h-8 text-white transition-transform duration-300 group-hover:rotate-12" />
+                </div>
+                <h3 className="text-xl font-medium text-[#2C7EF4] mb-4 transition-colors duration-300 group-hover:text-[#1F5FCE]" style={{ fontFamily: 'Lora, Georgia, serif', fontWeight: 500 }}>More Flexibility</h3>
+                <p className="text-[#000000] leading-relaxed" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif', fontWeight: 400 }}>Large lenders have rigid underwriting and covenants. We provide flexible funding to meet your diverse business needs.</p>
+              </div>
+              
+              <div className="ocean-card p-8 text-center group">
+                <div className="w-16 h-16 bg-[#2C7EF4] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#1F5FCE] group-hover:scale-110" style={{ borderRadius: '0px' }}>
+                  <Growth className="w-8 h-8 text-white transition-transform duration-300 group-hover:rotate-12" />
+                </div>
+                <h3 className="text-xl font-medium text-[#2C7EF4] mb-4 transition-colors duration-300 group-hover:text-[#1F5FCE]" style={{ fontFamily: 'Lora, Georgia, serif', fontWeight: 500 }}>Flexible Solutions</h3>
+                <p className="text-[#000000] leading-relaxed" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif', fontWeight: 400 }}>We can grow with you - our facilities scale up to $30m, and our terms improve as your business matures. We want to be your long term working capital solution.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+                {/* Comparison Table */}
+        <section className="py-20 bg-gradient-to-br from-gray-100/95 to-slate-200/95 backdrop-blur-sm relative">
+          <div className="container-custom">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl md:text-5xl font-medium text-[#000000] mb-6" style={{ fontFamily: 'Lora, Georgia, serif', fontWeight: 500 }}>
+                Compare for yourself
+              </h2>
+              <p className="text-xl text-[#000000]" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif', fontWeight: 400 }}>See how Deep Ocean Partners stacks up against traditional and fintech lenders</p>
+            </div>
+            
+            <div className="max-w-5xl mx-auto">
+                <div className="bg-white border border-[#030303] overflow-hidden" style={{ borderRadius: '0px', boxShadow: '0 1px 6px rgba(0, 0, 0, 0.1)' }}>
+                  {/* Table Header */}
+                  <div className="grid grid-cols-4 bg-gradient-to-r from-[#052C60] to-[#2C7EF4] text-white">
+                    <div className="p-4 font-medium" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif', fontWeight: 500 }}></div>
+                    <div className="p-4 text-center">
                       <div className="flex flex-col items-center">
-                        <div className="w-12 h-12 bg-[#2C7EF4] flex items-center justify-center mb-2">
-                          <Target className="w-6 h-6 text-white" />
+                        <div className="flex items-center justify-center mb-2">
+                          <img src="/lovable-uploads/DarkLogo.png" alt="Deep Ocean Partners" className="w-8 h-8 object-contain" />
                         </div>
-                        <span className="font-semibold text-[#2C7EF4]" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>Our Solution</span>
                       </div>
                     </div>
-                    <div className="p-6 text-center font-medium text-gray-700" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>Traditional Lenders</div>
-                    <div className="p-6 text-center font-medium text-gray-700" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>Fintech Lenders</div>
+                    <div className="p-4 text-center font-medium" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif', fontWeight: 500 }}>Traditional Lenders</div>
+                    <div className="p-4 text-center font-medium" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif', fontWeight: 500 }}>Fintech Lenders</div>
                   </div>
                 
                 {[
@@ -332,38 +557,50 @@ const ForBorrowers = () => {
                   { feature: "Speed to decision", ours: true, traditional: false, fintech: true },
                   { feature: "Long-term partners", ours: true, traditional: true, fintech: false }
                 ].map((row, index) => (
-                  <div key={index} className={`grid grid-cols-4 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'}`}>
-                    <div className="p-6 font-medium text-gray-900">{row.feature}</div>
-                    <div className="p-6 text-center">
+                  <div key={index} className={`grid grid-cols-4 ${index % 2 === 0 ? 'bg-gray-50' : 'bg-white'} border-t border-gray-200 hover:bg-blue-50 transition-all duration-300 group`}>
+                    <div className="p-8 font-medium text-[#000000] flex items-center" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif', fontWeight: 500 }}>
+                      <div className="w-2 h-2 bg-[#2C7EF4] mr-3 group-hover:scale-150 transition-transform duration-300" style={{ borderRadius: '0px' }}></div>
+                      {row.feature}
+                    </div>
+                    <div className="p-8 text-center flex items-center justify-center">
                       {row.ours ? (
-                        <CheckCircle className="w-6 h-6 text-green-500 mx-auto" />
+                        <div className="relative">
+                          <CheckCircle className="w-8 h-8 text-green-500 mx-auto animate-bounce font-bold filter drop-shadow-lg" style={{ 
+                            animationDelay: `${index * 0.1}s`,
+                            filter: 'drop-shadow(0 0 8px rgba(34, 197, 94, 0.6))'
+                          }} />
+                          <div className="absolute inset-0 w-8 h-8 bg-green-400 rounded-full opacity-20 animate-ping" style={{ animationDelay: `${index * 0.1}s` }}></div>
+                        </div>
                       ) : (
-                        <X className="w-6 h-6 text-red-500 mx-auto" />
+                        <X className="w-7 h-7 text-red-500 mx-auto opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
                       )}
                     </div>
-                    <div className="p-6 text-center">
+                    <div className="p-8 text-center flex items-center justify-center">
                       {row.traditional ? (
-                        <CheckCircle className="w-6 h-6 text-green-500 mx-auto" />
+                        <CheckCircle className="w-7 h-7 text-green-500 mx-auto group-hover:scale-110 transition-transform duration-300" />
                       ) : (
-                        <X className="w-6 h-6 text-red-500 mx-auto" />
+                        <X className="w-7 h-7 text-red-500 mx-auto opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
                       )}
                     </div>
-                    <div className="p-6 text-center">
+                    <div className="p-8 text-center flex items-center justify-center">
                       {row.fintech ? (
-                        <CheckCircle className="w-6 h-6 text-green-500 mx-auto" />
+                        <CheckCircle className="w-7 h-7 text-green-500 mx-auto group-hover:scale-110 transition-transform duration-300" />
                       ) : (
-                        <X className="w-6 h-6 text-red-500 mx-auto" />
+                        <X className="w-7 h-7 text-red-500 mx-auto opacity-60 group-hover:opacity-100 transition-opacity duration-300" />
                       )}
                     </div>
                   </div>
                 ))}
+                
+                {/* Bottom accent */}
+                <div className="h-1 bg-gradient-to-r from-[#052C60] to-[#2C7EF4]"></div>
               </div>
             </div>
           </div>
         </section>
 
         {/* Our Solutions */}
-        <section className="py-20 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 text-white">
+        <section className="py-20 bg-gradient-to-br from-blue-900/80 via-indigo-900/80 to-purple-900/80 backdrop-blur-sm text-white relative">
           <div className="container-custom">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-medium mb-6" style={{ fontFamily: 'Lora, Georgia, serif' }}>
@@ -407,11 +644,11 @@ const ForBorrowers = () => {
                   icon: BarChart3
                 }
               ].map((solution, index) => (
-                <div key={index} className="bg-white/10 backdrop-blur-sm p-8 hover:bg-white/15 transition-all duration-300" style={{ borderRadius: '0px', border: '1px solid #030303', boxShadow: '0 1px 6px rgba(0, 0, 0, 0.1)' }}>
-                  <div className="w-16 h-16 bg-[#2C7EF4] flex items-center justify-center mb-6">
-                    <solution.icon className="w-8 h-8 text-white" />
+                <div key={index} className="bg-white/10 backdrop-blur-sm p-8 hover:bg-white/20 transition-all duration-500 group hover:scale-105 hover:shadow-2xl" style={{ borderRadius: '0px', border: '1px solid #030303', boxShadow: '0 1px 6px rgba(0, 0, 0, 0.1)' }}>
+                  <div className="w-16 h-16 bg-[#2C7EF4] flex items-center justify-center mb-6 transition-all duration-300 group-hover:bg-[#1F5FCE] group-hover:scale-110">
+                    <solution.icon className="w-8 h-8 text-white transition-transform duration-300 group-hover:rotate-12" />
                   </div>
-                  <h3 className="text-xl font-medium mb-4" style={{ fontFamily: 'Lora, Georgia, serif' }}>{solution.title}</h3>
+                  <h3 className="text-xl font-medium mb-4 transition-colors duration-300 group-hover:text-[#2C7EF4]" style={{ fontFamily: 'Lora, Georgia, serif' }}>{solution.title}</h3>
                   <p className="text-blue-100 leading-relaxed" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>{solution.description}</p>
                 </div>
               ))}
@@ -420,7 +657,7 @@ const ForBorrowers = () => {
         </section>
 
         {/* Sector Focus */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-white/95 backdrop-blur-sm relative">
           <div className="container-custom">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6" style={{ fontFamily: 'Lora, Georgia, serif' }}>
@@ -434,45 +671,33 @@ const ForBorrowers = () => {
                 {
                   sector: "Fintech Originators",
                   help: "Advance rates and warehouse lines that scale with origination volume",
-                  traction: "314 borrowers funded • $7.1 B deployed • $4.0 B in new capacity available",
-                  icon: CreditCard,
-                  color: "from-blue-500 to-indigo-600"
+                  icon: CreditCard
                 },
                 {
                   sector: "Omnichannel Consumer Brands", 
                   help: "Inventory, working-capital and growth lines that flex with seasonality",
-                  traction: "515 partners • $2.9 B funded • $1.9 B ready to close",
-                  icon: Building,
-                  color: "from-indigo-500 to-purple-600"
+                  icon: Building
                 },
                 {
                   sector: "B2B Hard-Asset Operators",
-                  help: "Equipment, fleet and project financing matched to asset lifecycles", 
-                  traction: "201 companies • $3.9 B funded • $988 M in the pipeline",
-                  icon: Cpu,
-                  color: "from-purple-500 to-pink-600"
+                  help: "Equipment, fleet and project financing matched to asset lifecycles",
+                  icon: Cpu
                 },
                 {
                   sector: "SaaS Platforms",
                   help: "ARR-based facilities that don't dilute founders",
-                  traction: "57 SaaS firms • $739 M funded • $165 M queued up",
-                  icon: Laptop,
-                  color: "from-pink-500 to-red-600"
+                  icon: Laptop
                 }
               ].map((item, index) => (
-                <div key={index} className="borrowers-card p-8">
+                <div key={index} className="bg-white border border-[#030303] p-8 group hover:scale-105 transition-all duration-500 hover:shadow-xl" style={{ borderRadius: '0px', boxShadow: '0 1px 6px rgba(0, 0, 0, 0.1)' }}>
                   <div className="flex items-start gap-4 mb-6">
-                    <div className="w-16 h-16 bg-[#2C7EF4] flex items-center justify-center">
-                      <item.icon className="w-8 h-8 text-white" />
+                    <div className="w-16 h-16 bg-[#2C7EF4] flex items-center justify-center transition-all duration-300 group-hover:bg-[#1F5FCE] group-hover:scale-110" style={{ borderRadius: '0px' }}>
+                      <item.icon className="w-8 h-8 text-white transition-transform duration-300 group-hover:rotate-12" />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-2xl font-medium text-gray-900 mb-2" style={{ fontFamily: 'Lora, Georgia, serif' }}>{item.sector}</h3>
-                      <p className="text-gray-600 mb-4" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>{item.help}</p>
+                      <h3 className="text-2xl font-medium text-[#000000] mb-2 transition-colors duration-300 group-hover:text-[#2C7EF4]" style={{ fontFamily: 'Lora, Georgia, serif', fontWeight: 500 }}>{item.sector}</h3>
+                      <p className="text-[#000000] mb-4" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif', fontWeight: 400 }}>{item.help}</p>
                     </div>
-                  </div>
-                  <div className="bg-gray-50 p-4" style={{ borderRadius: '0px' }}>
-                    <h4 className="font-semibold text-gray-900 mb-2" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>Recent Traction</h4>
-                    <p className="text-gray-600 text-sm" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>{item.traction}</p>
                   </div>
                 </div>
               ))}
@@ -492,7 +717,7 @@ const ForBorrowers = () => {
         </section>
 
         {/* Why Choose Deep Ocean */}
-        <section className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 text-white">
+        <section className="py-20 bg-gradient-to-br from-slate-900/80 via-blue-900/80 to-indigo-900/80 backdrop-blur-sm text-white relative">
           <div className="container-custom">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-medium mb-6" style={{ fontFamily: 'Lora, Georgia, serif' }}>
@@ -501,35 +726,35 @@ const ForBorrowers = () => {
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="w-20 h-20 bg-[#2C7EF4] flex items-center justify-center mx-auto mb-6">
-                  <Zap className="w-10 h-10 text-white" />
+              <div className="text-center group">
+                <div className="w-20 h-20 bg-[#2C7EF4] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#1F5FCE] group-hover:scale-110 group-hover:shadow-xl">
+                  <Zap className="w-10 h-10 text-white transition-transform duration-300 group-hover:rotate-12" />
                 </div>
-                <h3 className="text-xl font-medium mb-4" style={{ fontFamily: 'Lora, Georgia, serif' }}>Speed & Certainty</h3>
+                <h3 className="text-xl font-medium mb-4 transition-colors duration-300 group-hover:text-[#2C7EF4]" style={{ fontFamily: 'Lora, Georgia, serif' }}>Speed & Certainty</h3>
                 <p className="text-blue-100 leading-relaxed" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>Term sheets in days, not months.</p>
               </div>
               
-              <div className="text-center">
-                <div className="w-20 h-20 bg-[#2C7EF4] flex items-center justify-center mx-auto mb-6">
-                  <Shield className="w-10 h-10 text-white" />
+              <div className="text-center group">
+                <div className="w-20 h-20 bg-[#2C7EF4] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#1F5FCE] group-hover:scale-110 group-hover:shadow-xl">
+                  <Shield className="w-10 h-10 text-white transition-transform duration-300 group-hover:rotate-12" />
                 </div>
-                <h3 className="text-xl font-medium mb-4" style={{ fontFamily: 'Lora, Georgia, serif' }}>Flexible Structures</h3>
+                <h3 className="text-xl font-medium mb-4 transition-colors duration-300 group-hover:text-[#2C7EF4]" style={{ fontFamily: 'Lora, Georgia, serif' }}>Flexible Structures</h3>
                 <p className="text-blue-100 leading-relaxed" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>Tailor covenants, tenors and amortization to your cash-flow reality.</p>
               </div>
               
-              <div className="text-center">
-                <div className="w-20 h-20 bg-[#2C7EF4] flex items-center justify-center mx-auto mb-6">
-                  <Users className="w-10 h-10 text-white" />
+              <div className="text-center group">
+                <div className="w-20 h-20 bg-[#2C7EF4] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#1F5FCE] group-hover:scale-110 group-hover:shadow-xl">
+                  <Users className="w-10 h-10 text-white transition-transform duration-300 group-hover:rotate-12" />
                 </div>
-                <h3 className="text-xl font-medium mb-4" style={{ fontFamily: 'Lora, Georgia, serif' }}>Long-Term Partnership</h3>
+                <h3 className="text-xl font-medium mb-4 transition-colors duration-300 group-hover:text-[#2C7EF4]" style={{ fontFamily: 'Lora, Georgia, serif' }}>Long-Term Partnership</h3>
                 <p className="text-blue-100 leading-relaxed" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>We stay in through cycles, providing add-on capital as you scale.</p>
               </div>
               
-              <div className="text-center">
-                <div className="w-20 h-20 bg-[#2C7EF4] flex items-center justify-center mx-auto mb-6">
-                  <Target className="w-10 h-10 text-white" />
+              <div className="text-center group">
+                <div className="w-20 h-20 bg-[#2C7EF4] flex items-center justify-center mx-auto mb-6 transition-all duration-300 group-hover:bg-[#1F5FCE] group-hover:scale-110 group-hover:shadow-xl">
+                  <Target className="w-10 h-10 text-white transition-transform duration-300 group-hover:rotate-12" />
                 </div>
-                <h3 className="text-xl font-medium mb-4" style={{ fontFamily: 'Lora, Georgia, serif' }}>Sector Expertise</h3>
+                <h3 className="text-xl font-medium mb-4 transition-colors duration-300 group-hover:text-[#2C7EF4]" style={{ fontFamily: 'Lora, Georgia, serif' }}>Sector Expertise</h3>
                 <p className="text-blue-100 leading-relaxed" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>Dedicated teams that understand the nuances of your industry.</p>
               </div>
             </div>
@@ -537,7 +762,7 @@ const ForBorrowers = () => {
         </section>
 
         {/* Process Section */}
-        <section className="py-20 bg-white">
+        <section className="py-20 bg-white/95 backdrop-blur-sm relative">
           <div className="container-custom">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6" style={{ fontFamily: 'Lora, Georgia, serif' }}>
@@ -628,7 +853,7 @@ const ForBorrowers = () => {
         </section>
 
         {/* Testimonials */}
-        <section className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+        <section className="py-20 bg-gradient-to-br from-gray-50/95 to-blue-50/95 backdrop-blur-sm relative">
           <div className="container-custom">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6" style={{ fontFamily: 'Lora, Georgia, serif' }}>
@@ -665,11 +890,11 @@ const ForBorrowers = () => {
                   title: "Founder, Ring Concierge"
                 }
               ].map((testimonial, index) => (
-                <div key={index} className="borrowers-card p-8">
-                  <div className="text-4xl text-[#2C7EF4] mb-4" style={{ fontFamily: 'Lora, Georgia, serif' }}>"</div>
-                  <p className="text-gray-700 leading-relaxed mb-6 italic" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>{testimonial.quote}</p>
+                <div key={index} className="borrowers-card p-8 group hover:scale-105 hover:shadow-xl transition-all duration-500">
+                  <div className="text-4xl text-[#2C7EF4] mb-4 transition-colors duration-300 group-hover:text-[#1F5FCE]" style={{ fontFamily: 'Lora, Georgia, serif' }}>"</div>
+                  <p className="text-gray-700 leading-relaxed mb-6 italic transition-colors duration-300 group-hover:text-gray-900" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>{testimonial.quote}</p>
                   <div>
-                    <div className="font-medium text-gray-900" style={{ fontFamily: 'Lora, Georgia, serif' }}>{testimonial.name}</div>
+                    <div className="font-medium text-gray-900 transition-colors duration-300 group-hover:text-[#2C7EF4]" style={{ fontFamily: 'Lora, Georgia, serif' }}>{testimonial.name}</div>
                     <div className="text-gray-600 text-sm" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>{testimonial.title}</div>
                   </div>
                 </div>
@@ -679,7 +904,7 @@ const ForBorrowers = () => {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900 text-white">
+        <section className="py-20 bg-gradient-to-br from-blue-900/80 via-indigo-900/80 to-purple-900/80 backdrop-blur-sm text-white relative">
           <div className="container-custom">
             <div className="text-center">
               <h2 className="text-4xl md:text-5xl font-medium mb-6" style={{ fontFamily: 'Lora, Georgia, serif' }}>
@@ -688,14 +913,11 @@ const ForBorrowers = () => {
               <p className="text-xl text-blue-100 mb-12 max-w-2xl mx-auto" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>
                 Let's talk about unlocking your business potential with flexible, data-driven financing solutions.
               </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <button className="borrowers-button px-12 py-5 text-lg font-semibold shadow-2xl" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif' }}>
-                  Get Your Quote Today
+              <div className="flex justify-center">
+                <a href="/contact" className="ocean-button px-12 py-5 text-lg font-medium shadow-2xl hover:shadow-3xl" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif', fontWeight: 500 }}>
+                  Get Started
                   <ArrowRight className="w-6 h-6" />
-                </button>
-                <button className="px-12 py-5 bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white font-medium text-lg border border-white/20 hover:border-white/40 transition-all duration-300" style={{ fontFamily: '"Source Sans Pro", "Helvetica Neue", Arial, sans-serif', borderRadius: '0px' }}>
-                  Schedule a Call
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -703,6 +925,7 @@ const ForBorrowers = () => {
       </main>
       
       <Footer />
+      </div>
     </div>
   );
 };
