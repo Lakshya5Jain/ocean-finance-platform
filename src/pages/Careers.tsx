@@ -1,10 +1,81 @@
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { Mail } from 'lucide-react';
+import { useEffect } from 'react';
 
 const Careers = () => {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in-up');
+            entry.target.classList.remove('opacity-0', 'translate-y-8');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <div className="min-h-screen bg-white font-montserrat">
+    <div className="min-h-screen bg-white font-source-sans">
+      {/* Global Styles */}
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          @keyframes float-slow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+          }
+          @keyframes float-medium {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(90deg); }
+          }
+          @keyframes float-fast {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(45deg); }
+          }
+          @keyframes fade-in-up {
+            from {
+              opacity: 0;
+              transform: translateY(30px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+          .animate-float-slow {
+            animation: float-slow 8s ease-in-out infinite;
+          }
+          .animate-float-medium {
+            animation: float-medium 6s ease-in-out infinite;
+          }
+          .animate-float-fast {
+            animation: float-fast 4s ease-in-out infinite;
+          }
+          .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out forwards;
+          }
+          .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+          }
+          .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          }
+          .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+          }
+        `
+      }} />
       <Header />
       
       <main className="pt-24">

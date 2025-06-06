@@ -68,15 +68,15 @@ const Header = () => {
                     onMouseEnter={() => setActiveDropdown(item.label)}
                     onMouseLeave={() => setActiveDropdown(null)}
                   >
-                    <button className={`relative font-montserrat font-medium transition-all duration-300 text-lg flex items-center gap-1 ${
+                    <button className={`relative font-lora font-medium transition-all duration-300 text-lg flex items-center gap-1 ${
                       isActiveDropdown 
-                        ? 'text-bright-azure' 
-                        : 'text-deep-navy hover:text-bright-azure'
+                        ? 'text-[#2C7EF4]' 
+                        : 'text-[#052C60] hover:text-[#2C7EF4]'
                     }`}>
                       <span>{item.label}</span>
                       <ChevronDown className="w-4 h-4" />
                     </button>
-                    <span className={`absolute bottom-0 left-0 h-0.5 bg-bright-azure transition-all duration-300 ${
+                    <span className={`absolute bottom-0 left-0 h-0.5 bg-[#2C7EF4] transition-all duration-300 ${
                       isActiveDropdown ? 'w-full' : 'w-0 group-hover:w-full'
                     }`}></span>
                     
@@ -90,10 +90,10 @@ const Header = () => {
                           <Link
                             key={subItem.path}
                             to={subItem.path}
-                            className={`block px-4 py-3 font-montserrat font-medium text-sm transition-colors duration-300 first:rounded-t-lg last:rounded-b-lg ${
+                            className={`block px-4 py-3 font-source-sans font-medium text-sm transition-colors duration-300 first:rounded-t-lg last:rounded-b-lg ${
                               isActive 
-                                ? 'text-bright-azure bg-blue-50' 
-                                : 'text-deep-navy hover:text-bright-azure hover:bg-gray-50'
+                                ? 'text-[#2C7EF4] bg-blue-50' 
+                                : 'text-[#052C60] hover:text-[#2C7EF4] hover:bg-gray-50'
                             }`}
                           >
                             {subItem.label}
@@ -109,14 +109,14 @@ const Header = () => {
                   <Link 
                     key={item.path}
                     to={item.path} 
-                    className={`relative font-montserrat font-medium transition-all duration-300 group text-lg ${
+                    className={`relative font-lora font-medium transition-all duration-300 group text-lg ${
                       isActive 
-                        ? 'text-bright-azure' 
-                        : 'text-deep-navy hover:text-bright-azure'
+                        ? 'text-[#2C7EF4]' 
+                        : 'text-[#052C60] hover:text-[#2C7EF4]'
                     }`}
                   >
                     <span className="relative z-10">{item.label}</span>
-                    <span className={`absolute bottom-0 left-0 h-0.5 bg-bright-azure transition-all duration-300 ${
+                    <span className={`absolute bottom-0 left-0 h-0.5 bg-[#2C7EF4] transition-all duration-300 ${
                       isActive ? 'w-full' : 'w-0 group-hover:w-full'
                     }`}></span>
                   </Link>
@@ -127,7 +127,7 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden relative p-2 rounded-lg transition-all duration-300 text-deep-navy"
+            className="md:hidden relative p-2 rounded-lg transition-all duration-300 text-[#052C60]"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -143,8 +143,8 @@ const Header = () => {
                   const isActiveDropdown = item.dropdown.some(subItem => location.pathname === subItem.path);
                   return (
                     <div key={item.label} className="space-y-2">
-                      <div className={`font-montserrat font-medium text-lg px-4 py-2 ${
-                        isActiveDropdown ? 'text-bright-azure' : 'text-deep-navy'
+                      <div className={`font-lora font-medium text-lg px-4 py-2 ${
+                        isActiveDropdown ? 'text-[#2C7EF4]' : 'text-[#052C60]'
                       }`}>
                         {item.label}
                       </div>
@@ -155,10 +155,10 @@ const Header = () => {
                             <Link 
                               key={subItem.path}
                               to={subItem.path} 
-                              className={`block font-montserrat font-medium text-base px-4 py-2 transition-all duration-300 ${
+                              className={`block font-source-sans font-medium text-base px-4 py-2 transition-all duration-300 ${
                                 isActive 
-                                  ? 'text-bright-azure bg-blue-50' 
-                                  : 'text-gray-600 hover:text-bright-azure'
+                                  ? 'text-[#2C7EF4] bg-blue-50' 
+                                  : 'text-gray-600 hover:text-[#2C7EF4]'
                               }`}
                               onClick={() => setIsMenuOpen(false)}
                             >
@@ -175,10 +175,10 @@ const Header = () => {
                     <Link 
                       key={item.path}
                       to={item.path} 
-                      className={`font-montserrat font-medium transition-all duration-300 text-lg flex items-center justify-between group px-4 py-2 ${
+                      className={`font-lora font-medium transition-all duration-300 text-lg flex items-center justify-between group px-4 py-2 ${
                         isActive 
-                          ? 'text-bright-azure' 
-                          : 'text-deep-navy hover:text-bright-azure'
+                          ? 'text-[#2C7EF4]' 
+                          : 'text-[#052C60] hover:text-[#2C7EF4]'
                       }`}
                       onClick={() => setIsMenuOpen(false)}
                     >
